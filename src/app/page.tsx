@@ -14,7 +14,7 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <h1>Task List</h1>
       {tasks.length > 0 ? (
         <table className={styles.taskTable}>
