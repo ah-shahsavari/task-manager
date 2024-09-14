@@ -44,7 +44,7 @@ export default function TaskForm({ task, onSubmit }: TaskFormProps) {
           setValueAs: (v) => Boolean(v),
         })}
       >
-        <option value="false">In Progress</option>
+        <option value="">In Progress</option>
         <option value="true">Completed</option>
       </select>
 

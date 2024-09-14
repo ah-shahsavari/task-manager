@@ -12,7 +12,6 @@ export default function AddTask() {
   const handleAddTask = (task: Task) => {
     addTask({ ...task, id: Date.now() })
     router.push("/")
-    // redirect("/")
   }
 
   return (
