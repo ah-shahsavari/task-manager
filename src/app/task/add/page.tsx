@@ -1,5 +1,5 @@
 "use client"
-
+import { Task } from "../../types"
 import Link from "next/link"
 import TaskForm from "../../components/TaskForm"
 import { useTasks } from "../../context/TaskContext"
@@ -9,7 +9,7 @@ export default function AddTask() {
   const { addTask } = useTasks()
   const router = useRouter()
 
-  const handleAddTask = (task) => {
+  const handleAddTask = (task: Task) => {
     addTask({ ...task, id: Date.now() })
     router.push("/")
     // redirect("/")

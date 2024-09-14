@@ -27,7 +27,6 @@ export default function TaskForm({ task, onSubmit }: TaskFormProps) {
 
   const submitHandler = handleSubmit((data) => {
     onSubmit(data)
-    
   })
 
   return (
@@ -40,9 +39,13 @@ export default function TaskForm({ task, onSubmit }: TaskFormProps) {
       <textarea {...register("description")} />
 
       <label>Status</label>
-      <select {...register("completed")}>
-        <option value={false}>In Progress</option>
-        <option value={true}>Completed</option>
+      <select
+        {...register("completed", {
+          setValueAs: (v) => Boolean(v),
+        })}
+      >
+        <option value="false">In Progress</option>
+        <option value="true">Completed</option>
       </select>
 
       <button type="submit">Save Task</button>

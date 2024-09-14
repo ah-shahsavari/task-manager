@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation"
 import { useTasks } from "../../context/TaskContext"
 import TaskForm from "../../components/TaskForm"
-import Link from "next/link"
+import { Task, TaskWithId } from "../../types"
 
 export default function TaskDetails({ params }: { params: { id: string } }) {
   const { tasks, updateTask } = useTasks()
@@ -16,16 +16,13 @@ export default function TaskDetails({ params }: { params: { id: string } }) {
   }
 
   const handleUpdateTask = (updatedTask: Task) => {
-    updateTask(Number(params.id), updatedTask)
-    router.push("/") // هدایت به صفحه لیست تسک‌ها بعد از ویرایش
+    const taskWithId: TaskWithId = { ...updatedTask, id: Number(params.id) }
+    updateTask(taskWithId.id, taskWithId)
+    router.push("/")
   }
 
   return (
     <div>
-      <div className="header-bar">
-        <h1>Task Details</h1>
-        <Link href={'/'}>back</Link>
-      </div>
       <TaskForm task={task} onSubmit={handleUpdateTask} />
     </div>
   )

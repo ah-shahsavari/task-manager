@@ -28,7 +28,7 @@ export default function RootLayout({
     <TaskProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} `}
+          className={`${geistSans.variable} ${geistMono.variable}  container`}
         >
           {children}
         </body>
